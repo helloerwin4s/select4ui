@@ -1,0 +1,99 @@
+%border {
+    border: 1px solid $snow;
+    border-radius: 4px;
+}
+
+%scrollbar {
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: $noir;
+        display: none;
+    }
+    &:hover, &focus {
+        &::-webkit-scrollbar-thumb {
+            display: block;
+        }
+    }
+}
+
+.#{$p} {
+    &-select {
+        position: relative;
+        width: 100%;
+        @extend .mb-20 ;
+        &--arrow {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            width: 4px;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 6px solid $noir;
+            cursor: pointer;
+        }
+        &--value {
+            height: 36px;
+            cursor: pointer;
+            @extend %border;
+            @extend .pt-5, .pr-30, .pb-5, .pl-10 ;
+            transition: all .4s;
+            &.is-placeholder {
+                @extend .#{$p}-cl--dust ;
+            }
+        }
+        &--list {
+            position: absolute;
+            width: 100%;
+            top: calc(100% + 3px);
+            left: 0;
+            overflow: auto;
+            transform: translateY(5px);
+            transition: all .3s;
+            opacity: 0;
+            visibility: hidden;
+            z-index: -99;
+            @extend %border, %scrollbar, .#{$p}-bg--blanc ;
+        }
+        &--item {
+            @extend .pt-5, .pr-10, .pb-5, .pl-10 ;
+            transition: all .4s;
+            cursor: pointer;
+            &.is-selected {
+                @extend .#{$p}-bg--cloud ;
+                &:hover, &:active, &:focus {
+                    @extend .#{$p}-cl--noir ;
+                }
+            }
+            &:hover, &:active, &:focus {
+                background-color: lighten($primary, 20%);
+                @extend .#{$p}-cl--blanc ;
+            }
+        }
+        &:hover , &:active, &:focus,
+        &.is-active {
+            .#{$p}-select {
+                &--value {
+                    border-color: lighten($primary, 20%);
+                }
+            }
+        }
+        &.is-active {
+            .#{$p}-select {
+                &--list {
+                    opacity: 1;
+                    visibility: visible;
+                    z-index: 99;
+                    transform: translateY(0);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+.#{$p} {
+    &-aside {
+        position: fixed;
+        width: 320px;
+        height: 100vh;
+        top: 0;
+        left: 0;   
+        background-color: $primary;
+        @extend .p-30, .#{$p}-cl--blanc ;
+        &--list {
+            list-style: none;
+            padding: 0;
+            &-item {
+
+            }
+            &-link {
+                display: block;
+                position: relative;
+                @extend .py-5, .#{$p}-cl--blanc ;
+                &:hover {
+                    @extend .pl-10 ;
+                    &:before {
+                        position: absolute;
+                        top: 4px;
+                        left: 0;
+                        content: '-';
+                    }
+                }
+            }
+        }
+    }
+}

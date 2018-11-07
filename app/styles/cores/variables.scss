@@ -1,0 +1,41 @@
+$p: 'fs'; // fs is prefix.
+// Colors
+$primary:   #0E4D92;
+$secondary: #f96d01;
+// Base Color
+$noir:      #555555;
+$smoke:     #8f8f8f;
+$dust:      #a0a0a0;
+$snow:      #dcdcdc;
+$cloud:     #f0f0f0;
+$blanc:     #ffffff;
+// Fonts
+$font-family: 'Source Sans Pro', sans-serif;
+$base: 16; // base-value-system
+$font-weight: 400, 600, 700;
+$font-type: regular, semibold, bold;
+$font-size: 12 14 16 18 21 24 26 32;
+// Spacing
+$spaces: 12;
+// Color merge
+$theme-colors: () !default;
+$theme-colors: map-merge(
+    (
+        "primary":      $primary,
+        "secondary":    $secondary
+    ),
+    $theme-colors
+);
+
+$theme-colors-base: () !default;
+$theme-colors-base: map-merge(
+    (
+        "noir":     $noir,
+        "smoke":    $smoke,
+        "dust":     $dust,
+        "snow":     $snow,
+        "cloud":    $cloud,
+        "blanc":    $blanc
+    ),
+    $theme-colors-base
+);

@@ -1,0 +1,37 @@
+// spacing
+@mixin spacing($spacing) {
+    @while $spacing <= $spaces {
+        $value: #{$spacing*5}px; 
+
+        @each $prop, $abbrev in (margin: m, padding: p) {
+            .#{$abbrev}-#{$spacing*5} { #{$prop}: $value; }
+            .#{$abbrev}x-#{$spacing*5} { #{$prop}: 0 $value; }
+            .#{$abbrev}y-#{$spacing*5} { #{$prop}: $value 0; }
+            .#{$abbrev}t-#{$spacing*5} { #{$prop}-top: $value; }
+            .#{$abbrev}l-#{$spacing*5} { #{$prop}-left: $value; }
+            .#{$abbrev}b-#{$spacing*5} { #{$prop}-bottom: $value; }
+            .#{$abbrev}r-#{$spacing*5} { #{$prop}-right: $value; }
+        }
+
+        $spacing: $spacing + 1;
+    }
+}
+@include spacing(0);
+
+// colors
+@mixin colors($parent, $color) {
+    .#{$p}-bg--#{$parent} {
+        background-color: $color;
+    }
+    .#{$p}-cl--#{$parent} {
+        color: $color;
+    }
+}
+
+@each $color, $value in $theme-colors { 
+    @include colors($color, $value);
+}
+
+@each $color, $value in $theme-colors-base { 
+    @include colors($color, $value);
+}

@@ -1,0 +1,45 @@
+.#{$p} {
+    &-main {
+        display: flex;
+        width: calc(100% - 320px);
+        margin-left: 320px;
+        &--content {
+            flex: none;
+            width: calc(100% - 200px);
+            @extend .p-30 ;
+        }
+        &--props {
+            flex: none;
+            width: 200px;
+            height: 100vh;
+            border-left: 1px solid $snow;
+            background-color: $cloud;
+            @extend .p-30 ;
+            &-list {
+                list-style: none;
+                padding: 0;
+            }
+            &-label {
+                cursor: pointer;
+                span {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    &-checkbox {
+        -webkit-appearance: none;
+        width: 16px;
+        height: 16px;
+        border: 1px solid $snow;
+        border-radius: 3px;
+        background-color: $blanc;
+        outline: none;
+        position: relative;
+        top: 2px;
+        &:checked {
+            background-color: $primary;
+        }
+    }
+}

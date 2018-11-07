@@ -1,0 +1,39 @@
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: $primary;
+    text-decoration: none;
+    transition: all .4s;
+    &:hover, &:active, &:focus {
+        text-decoration: none;
+    }
+}
+
+html, body {
+    font-family: $font-family;
+    @extend .#{$p}-reg-16 ;
+    color: $noir;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+}
+
+.clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.img-fluid {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
