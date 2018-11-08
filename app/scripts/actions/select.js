@@ -20,10 +20,12 @@ export default config => {
 
     })(config);
     
-    const openDropdown = trigger => {
+    const openDropdown = (trigger, opt) => {
         trigger.addEventListener('click', e => {
             e.stopPropagation();
             let $this = e.target;
+            let target = document.getElementsByClassName(`${opt.prefix}`);
+            remove(target);
             $.toggleClass($this.parentElement, 'is-active');
         })
     }
@@ -65,7 +67,7 @@ export default config => {
         
         let trigger = document.getElementById(id);
         let item = trigger.querySelectorAll(`.${opt.prefix}--item`); 
-        openDropdown(trigger);
+        openDropdown(trigger, opt);
         selectItem(el, item);
         
     })(config);

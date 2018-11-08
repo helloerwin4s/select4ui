@@ -5,12 +5,12 @@
         margin-left: 320px;
         &--content {
             flex: none;
-            width: calc(100% - 200px);
+            width: calc(100% - 320px);
             @extend .p-30 ;
         }
         &--props {
             flex: none;
-            width: 200px;
+            width: 320px;
             height: 100vh;
             border-left: 1px solid $snow;
             background-color: $cloud;

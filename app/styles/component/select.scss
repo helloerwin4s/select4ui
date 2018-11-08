@@ -15,12 +15,6 @@
     &::-webkit-scrollbar-thumb {
         border-radius: 10px;
         background-color: $noir;
-        display: none;
-    }
-    &:hover, &focus {
-        &::-webkit-scrollbar-thumb {
-            display: block;
-        }
     }
 }
 
@@ -68,9 +62,6 @@
             cursor: pointer;
             &.is-selected {
                 @extend .#{$p}-bg--cloud ;
-                &:hover, &:active, &:focus {
-                    @extend .#{$p}-cl--noir ;
-                }
             }
             &:hover, &:active, &:focus {
                 background-color: lighten($primary, 20%);

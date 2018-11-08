@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import webpack from 'webpack';
 import webpackStream from 'webpack-stream';
-import webpackConfig from './webpack.config.babel';
+import uglify from 'gulp-uglify-es';
 import browserSync from 'browser-sync';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import sass from 'gulp-sass';
@@ -12,7 +12,14 @@ export const clean = () => del([ paths.bases.dest ]);
 
 export const scripts = () => {
   return gulp.src('./app/scripts/main.js')
-    .pipe(webpackStream(webpackConfig), webpack)
+    .pipe(webpackStream(
+      {
+        output: {
+          filename: 'main.min.js'
+        }
+      }
+    ), webpack)
+    .pipe(uglify())
     .pipe(gulp.dest('./public/scripts/'))
     .pipe(browserSync.stream());;
 }
